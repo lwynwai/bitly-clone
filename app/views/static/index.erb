@@ -1,2 +1,42 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>Bit.ly</h1>
+<!-- <p>See Me in views/static/index.html.erb</p> -->
+
+<form action="/urls" method="post"> 
+	Enter URL: 
+    	<input type="text" placeholder="Enter Your URL here" name="long_url">
+    	<input type="submit" value="Submit">
+ </form>
+
+
+
+
+
+<div class="recent_list">
+
+	<p>Here are your recently shortened URLs!</p>
+
+    	<table class="table table-hover">
+
+       <thead>
+     		<tr>
+        		<th>Shorten URL</th>
+	    		<th>URL</th>
+	    		<th>Visit count</th>
+	 	</tr>
+      </thead>
+
+  	<tbody>
+    		<% @urls.each do |url|%>
+        		<tr>
+	   			 <td><a href="http://localhost:9393/<%= url.short_url%>">http://Bit.ly/<%= url.short_url%></a></td>
+	   			<td><%= url.long_url%></td>
+	   			<td><%= url.click_count%></td>
+	   			
+
+	 		</tr>
+		<%end%>
+     </tbody>
+
+    </table>
+
+</div>
